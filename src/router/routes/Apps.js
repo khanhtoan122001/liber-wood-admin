@@ -25,6 +25,12 @@ const UserView = lazy(() => import('../../views/apps/user/view'))
 const Roles = lazy(() => import('../../views/apps/roles-permissions/roles'))
 const Permissions = lazy(() => import('../../views/apps/roles-permissions/permissions'))
 
+const CollectionList = lazy(() => import('../../views/apps/collection/list'))
+const CollectionView = lazy(() => import('../../views/apps/collection/view'))
+
+const ProductList = lazy(() => import('../../views/apps/product/list'))
+const ProductView = lazy(() => import('../../views/apps/product/view'))
+
 const AppRoutes = [
   {
     element: <Email />,
@@ -183,6 +189,30 @@ const AppRoutes = [
   {
     element: <Permissions />,
     path: '/apps/permissions'
+  },
+  {
+    element: <CollectionList />,
+    path: '/apps/collection/list'
+  },
+  {
+    element: <Navigate to='/apps/collection/view/4' />,
+    path: '/apps/collection/view'
+  },
+  {
+    element: <CollectionView />,
+    path: '/apps/collection/view/:id'
+  },
+  {
+    element: <ProductList />,
+    path: '/apps/product/list'
+  },
+  {
+    element: <Navigate to='/apps/product/view/4' />,
+    path: '/apps/product/view'
+  },
+  {
+    element: <ProductView />,
+    path: '/apps/product/view/:id'
   }
 ]
 

@@ -1,5 +1,5 @@
 // ** Auth Endpoints
-const apiEndpoint = "http://127.0.0.1:8000"
+export const apiEndpoint = "http://127.0.0.1:8000"
 export default {
   loginEndpoint: `${apiEndpoint}/oauth/token`,
   registerEndpoint: '/jwt/register',

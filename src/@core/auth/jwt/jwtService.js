@@ -18,7 +18,10 @@ export default class JwtService {
     axios.interceptors.request.use(
       config => {
         // ** Get token from localStorage
-        const accessToken = this.getToken()
+        let accessToken = this.getToken()
+        if (accessToken) {
+          accessToken = accessToken.replace(/^"|"$/g, '')
+        }
 
         // ** If token is present add it to request's Authorization Header
         if (accessToken) {

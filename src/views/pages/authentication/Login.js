@@ -74,12 +74,13 @@ const Login = () => {
         .login({ username: data.loginEmail, password: data.password, grant_type: "password", client_id: "4", client_secret: "m6N2R4CZHLCuTW4BksDmQGpThxBMF0whatky5pDM" })
         .then(res => {
           console.log(res)
-          const data = { ...res.data.userData, accessToken: res.data.access_token, refreshToken: res.data.refresh_token }
+          const userData = {id: 1, fullName: 'John Doe', username: 'johndoe', avatar: '/static/media/avatar-s-11.1d46cc62.jpg', email: 'admin@demo.com', role: "admin"}
+          const data = { ...userData, accessToken: res.data.access_token, refreshToken: res.data.refresh_token }
           console.log(data)
           dispatch(handleLogin(data))
           console.log(handleLogin(data))
-          ability.update(
-            {action: 'manage', subject: 'all'})
+          ability.update([{action: 'manage', subject: 'all'}])
+          console.log(ability)
           navigate(getHomeRouteForLoggedInUser("admin"))
           toast(t => (
             <ToastContent t={t} role={'admin'} name={'admin'} />

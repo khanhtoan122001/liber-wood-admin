@@ -11,6 +11,7 @@ const PrivateRoute = ({ children, route }) => {
   const user = JSON.parse(localStorage.getItem('userData'))
 
   if (route) {
+    ability.update([{action: 'manage', subject: 'all'}])
     let action = null
     let resource = null
     let restrictedRoute = false
